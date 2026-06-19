@@ -1,0 +1,21 @@
+# Secrets — never commit these
+.env
+# Database and generated files
+data/jobs.db
+data/jobs.db-shm
+data/jobs.db-wal
+data/jobs_report.html
+data/chrome_profile/
+data/.linkedin_verified
+data/raw_cookies.json
+data/linkedin_login_debug.png
+# Resume (personal document)
+resume/
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+# macOS
+.DS_Store

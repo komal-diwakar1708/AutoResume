@@ -1,0 +1,134 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Automated Job Application System — Configuration
+# Edit this file to match your preferences before running.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Your target job title (used in search queries)
+job_title: "Product Manager"
+
+# Alternative titles to also search for
+alt_titles:
+  - "Intern Product Manager"
+  - "Associate Product Manager"
+  - "Technical Product Manager"
+
+# Jobs whose title contains ANY of these words will be EXCLUDED
+# (case-insensitive) — use this to block over/under-qualified roles
+exclude_title_keywords:
+  - "Senior"
+  - "Sr."
+  - "Lead"
+  - "Principal"
+  - "Staff"
+  - "Director"
+  - "Head of"
+  - "VP"
+  - "Vice President"
+  - "Group Product"
+
+# Your core skills — used to score how well a job matches you
+skills:
+  - "product roadmap"
+  - "agile"
+  - "scrum"
+  - "stakeholder management"
+  - "user research"
+  - "user persona"
+  - "empathy mapping"
+  - "B2B SaaS"
+  - "OKRs"
+  - "data-driven"
+  - "go-to-market"
+  - "product strategy"
+  - "product discovery"
+  - "feature prioritization"
+  - "cross-functional"
+  - "PRD"
+  - "Pricing Models"
+  - "Product Analytics"
+  - "Product Lifecycle Management"
+  - "Agile/Scrum"
+  - "A/B Testing"
+  - "B2B SaaS"
+  - "Cross-functional Leadership"
+  - "Mixpanel"
+
+# Target countries/locations
+locations:
+  - "Germany"
+  - "Singapore"
+  - "Japan"
+  - "Australia"
+  - "New Zealand"
+  - "Canada"
+  - "Bengaluru"
+  - "Pune"
+  - "Mumbai"
+
+# Minimum match score (0.0–1.0) to consider a job worth applying to
+min_match_score: 0.3
+
+# Salary preferences (optional — leave 0 to skip this filter)
+min_salary: 0
+salary_currency: "USD"
+
+# Job type preferences
+remote_ok: true
+hybrid_ok: true
+onsite_ok: true
+
+# Only apply to jobs that explicitly mention visa sponsorship
+visa_sponsorship_required: false
+
+# ── Safety Limits ─────────────────────────────────────────────────────────────
+# Maximum number of applications to submit per run (safety cap)
+apply_limit_per_run: 10
+
+# Delay between actions (seconds) — realistic human-like delays
+min_delay_seconds: 2
+max_delay_seconds: 6
+
+# ── Search Sources ─────────────────────────────────────────────────────────────
+# Toggle which sources to use
+sources:
+  jsearch: false       # DISABLED — monthly quota exhausted; flip to true after Jul 1 / upgrade
+  linkedin: true       # LinkedIn direct scraper + Easy Apply
+  indeed: false        # DISABLED — Indeed blocking scraper (0 results); re-enable if fixed
+  seek: true           # Seek.com.au / Seek.co.nz
+  stepstone: true      # StepStone.de (Germany)
+
+# Maximum results per source per run
+max_results_per_source: 50
+
+# ── Application Preferences ───────────────────────────────────────────────────
+# Your personal details (used to fill application forms)
+personal:
+  first_name: "Komal"
+  last_name: "Diwakar"
+  email: "komaldiwakar1708@gmail.com"            # Will use EMAIL_ADDRESS from .env if empty
+  phone: "+91-6394599580"
+  linkedin_url: "https://www.linkedin.com/in/komal-diwakar/"
+  portfolio_url: ""
+  current_location: "Bengaluru, India"
+  years_of_experience: 8
+  notice_period: "1 month"
+  # Automatically picks the right answer based on job location
+  work_authorization:
+    india: "Indian Citizen — authorized to work"
+    international: "Requires Visa Sponsorship"
+
+# Path to your resume (relative to project root)
+resume_path: "resume/resume.pdf"
+
+# ── Email Outreach ─────────────────────────────────────────────────────────────
+email_outreach:
+  enabled: true
+  # Subject line template — {job_title} and {company} are replaced automatically
+  subject_template: "Application for {job_title} at {company} — {first_name} {last_name}"
+  # Send a follow-up after this many days (0 = no follow-up)
+  follow_up_after_days: 7
+
+# ── Scheduling ────────────────────────────────────────────────────────────────
+schedule:
+  # Run the pipeline automatically every N hours (0 = run once manually)
+  run_every_hours: 12
