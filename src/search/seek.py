@@ -49,7 +49,7 @@ class SeekSearcher(BaseSearcher):
             stealth_sync(page)
 
             keywords = urllib.parse.quote(title)
-            url = f"https://{domain}/{keywords}-jobs/in-All-{location.replace(' ', '-')}?daterange=30"
+            url = f"https://{domain}/{keywords}-jobs/in-All-{location.replace(' ', '-')}?daterange={self.max_age_days}"
 
             try:
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)

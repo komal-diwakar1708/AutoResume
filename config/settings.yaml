@@ -8,12 +8,14 @@ job_title: "Product Manager"
 
 # Alternative titles to also search for
 alt_titles:
-  - "Intern Product Manager"
   - "Associate Product Manager"
-  - "Technical Product Manager"
+  - "Junior Product Manager"
+  - "Intern Product Manager"
+  - "Product Manager Intern"
 
 # Jobs whose title contains ANY of these words will be EXCLUDED
-# (case-insensitive) — use this to block over/under-qualified roles
+# (case-insensitive) — use this to block over-qualified (senior+) roles.
+# Junior / intern / graduate roles are intentionally INCLUDED.
 exclude_title_keywords:
   - "Senior"
   - "Sr."
@@ -28,30 +30,39 @@ exclude_title_keywords:
 
 # Your core skills — used to score how well a job matches you
 skills:
+  # Product Management & Strategy
+  - "product strategy"
+  - "product discovery"
   - "product roadmap"
-  - "agile"
-  - "scrum"
-  - "stakeholder management"
+  - "feature prioritization"
   - "user research"
   - "user persona"
   - "empathy mapping"
-  - "B2B SaaS"
-  - "OKRs"
-  - "data-driven"
+  - "GTM strategy"
   - "go-to-market"
-  - "product strategy"
-  - "product discovery"
-  - "feature prioritization"
-  - "cross-functional"
-  - "PRD"
-  - "Pricing Models"
-  - "Product Analytics"
-  - "Product Lifecycle Management"
-  - "Agile/Scrum"
-  - "A/B Testing"
+  - "pricing models"
+  - "product analytics"
+  - "product lifecycle management"
+  - "stakeholder management"
+  - "agile"
+  - "scrum"
+  - "OKRs"
+  - "A/B testing"
   - "B2B SaaS"
-  - "Cross-functional Leadership"
+  - "cross-functional leadership"
+  - "data-driven"
+  - "PRD"
+  # Data, Analytics, Tools & Technologies
+  - "SQL"
+  - "data analysis"
+  - "KPI tracking"
+  - "API integration"
+  - "funnel analysis"
+  - "user behavior analysis"
   - "Mixpanel"
+  - "Splunk"
+  - "Tableau"
+  - "Power BI"
 
 # Target countries/locations
 locations:
@@ -61,9 +72,20 @@ locations:
   - "Australia"
   - "New Zealand"
   - "Canada"
+  - "United Kingdom"
+  - "Netherlands"
+  - "United Arab Emirates"
   - "Bengaluru"
   - "Pune"
   - "Mumbai"
+  - "Hyderabad"
+  - "Gurgaon"
+  - "Delhi"
+  - "Noida"
+
+# Only return jobs posted within the last N days (freshness filter)
+# 1 = last 24 hours
+max_job_age_days: 1
 
 # Minimum match score (0.0–1.0) to consider a job worth applying to
 min_match_score: 0.3
@@ -91,11 +113,14 @@ max_delay_seconds: 6
 # ── Search Sources ─────────────────────────────────────────────────────────────
 # Toggle which sources to use
 sources:
-  jsearch: false       # DISABLED — monthly quota exhausted; flip to true after Jul 1 / upgrade
-  linkedin: true       # LinkedIn direct scraper + Easy Apply
-  indeed: false        # DISABLED — Indeed blocking scraper (0 results); re-enable if fixed
-  seek: true           # Seek.com.au / Seek.co.nz
-  stepstone: true      # StepStone.de (Germany)
+  jsearch: false            # DISABLED — monthly quota exhausted; flip to true after upgrade
+  linkedin: true            # LinkedIn direct scraper (all countries)
+  indeed: false             # DISABLED — Indeed blocking scraper (0 results)
+  seek: true                # Seek.com.au / Seek.co.nz (Australia / New Zealand)
+  stepstone: true           # StepStone.de (Germany)
+  mycareersfuture: false    # DISABLED — applications require SingPass (SG citizens/PR only)
+  efinancialcareers: false  # eFinancialCareers (finance roles) — Playwright, experimental
+  wantedly: false           # Wantedly (Japan) — Playwright, experimental
 
 # Maximum results per source per run
 max_results_per_source: 50
@@ -118,7 +143,7 @@ personal:
     international: "Requires Visa Sponsorship"
 
 # Path to your resume (relative to project root)
-resume_path: "resume/resume.pdf"
+resume_path: "resume/Komal_Diwakar_Resume.pdf"
 
 # ── Email Outreach ─────────────────────────────────────────────────────────────
 email_outreach:

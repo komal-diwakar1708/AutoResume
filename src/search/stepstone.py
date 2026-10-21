@@ -47,7 +47,9 @@ class StepStoneSearcher(BaseSearcher):
             stealth_sync(page)
 
             keywords = urllib.parse.quote(title)
-            url = f"{STEPSTONE_BASE}/jobs/{keywords}.html?where=Deutschland&radius=200"
+            # StepStone age buckets: age_1, age_3, age_7, age_14, age_30
+            bucket = min([1, 3, 7, 14, 30], key=lambda b: abs(b - self.max_age_days))
+            url = f"{STEPSTONE_BASE}/jobs/{keywords}.html?where=Deutschland&radius=200&ag=age_{bucket}"
 
             try:
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)

@@ -45,7 +45,7 @@ class LinkedInSearcher(BaseSearcher):
             params = urllib.parse.urlencode({
                 "keywords": title,
                 "location": location,
-                "f_TPR": "r2592000",  # Last 30 days
+                "f_TPR": f"r{self.max_age_days * 86400}",  # posted within N days (seconds)
                 "f_JT": "F",          # Full-time
                 "start": "0",
             })

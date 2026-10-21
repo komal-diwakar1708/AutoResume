@@ -162,6 +162,15 @@ class Orchestrator:
         if self.sources_cfg.get("stepstone", True):
             postings.extend(self._safe_search("stepstone"))
 
+        if self.sources_cfg.get("mycareersfuture", True):
+            postings.extend(self._safe_search("mycareersfuture"))
+
+        if self.sources_cfg.get("efinancialcareers", False):
+            postings.extend(self._safe_search("efinancialcareers"))
+
+        if self.sources_cfg.get("wantedly", False):
+            postings.extend(self._safe_search("wantedly"))
+
         # Global URL-level dedup across all sources
         seen: set[str] = set()
         unique: list[JobPosting] = []
@@ -201,6 +210,15 @@ class Orchestrator:
         elif source == "stepstone":
             from src.search.stepstone import StepStoneSearcher
             return StepStoneSearcher(self.config)
+        elif source == "mycareersfuture":
+            from src.search.mycareersfuture import MyCareersFutureSearcher
+            return MyCareersFutureSearcher(self.config)
+        elif source == "efinancialcareers":
+            from src.search.efinancialcareers import EFinancialCareersSearcher
+            return EFinancialCareersSearcher(self.config)
+        elif source == "wantedly":
+            from src.search.wantedly import WantedlySearcher
+            return WantedlySearcher(self.config)
         return None
 
     def _preflight_linkedin(self, matched: list[JobPosting]) -> None:

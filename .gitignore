@@ -11,6 +11,9 @@ data/raw_cookies.json
 data/linkedin_login_debug.png
 # Resume (personal document)
 resume/
+# Playwright browsers (large binaries, installed locally)
+.pw-browsers/
+
 # Python
 .venv/
 __pycache__/

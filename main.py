@@ -177,9 +177,19 @@ def check_setup() -> bool:
     if not config_path.exists():
         issues.append("config/settings.yaml not found")
 
-    resume_path = ROOT / "resume" / "resume.pdf"
+    # Read the resume path from config rather than hardcoding it
+    resume_rel = "resume/resume.pdf"
+    if config_path.exists():
+        try:
+            import yaml
+            with open(config_path, encoding="utf-8") as f:
+                cfg = yaml.safe_load(f) or {}
+            resume_rel = cfg.get("resume_path", resume_rel)
+        except Exception:
+            pass
+    resume_path = ROOT / resume_rel
     if not resume_path.exists():
-        issues.append("resume/resume.pdf not found — place your resume PDF here before running")
+        issues.append(f"{resume_rel} not found — place your resume PDF here before running")
 
     env_path = ROOT / ".env"
     if not env_path.exists():
@@ -284,7 +294,7 @@ def main():
         print("Fix the issues above, then run again.\n")
         print("Quick start:")
         print("  1. cp .env.example .env  (then fill in your API keys)")
-        print("  2. Place your resume at:  resume/resume.pdf")
+        print("  2. Place your resume at the path set in config/settings.yaml (resume_path)")
         print("  3. Edit:                  config/settings.yaml")
         print("  4. Run:                   python main.py\n")
         sys.exit(1)
